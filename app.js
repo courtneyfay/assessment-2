@@ -17,3 +17,5 @@ Bonus:
 -Keep track of best times/ high scores across page refreshes using localStorage
 
 */
+
+console.log("js is loaded!");
