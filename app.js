@@ -21,39 +21,55 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("js is loaded!");
 
   // Constructor function that creates 2 new player objects
-  function Player(name="player1", position=0) {
+  function Player(name="player1", xPosition=0, yPosition=0) {
   		this.name = name;
-  		this.position = position;
+  		this.xPosition = xPosition;
+  		this.yPosition = yPosition;
   }
 
-  //function that moves the player 10px right when the appropriate key is struck (k/K for player1, s/S for player2)
+  //function that moves the player 1% to the right when the appropriate key is struck (k/K for player1, s/S for player2)
   Player.prototype = {
   	keystrokeMove: function() {
-  		this.position = this.position + 10;
   		let player = document.getElementById(this.name);
-  		let newPixelPosition = this.position + "px";
-  		player.style.left = newPixelPosition;
+
+  		//move the player to the right
+  		this.xPosition = this.xPosition + 1;
+  		let newXPosition = this.xPosition + "%";
+  		player.style.left = newXPosition;
+
+  		//moves the player down the mountain
+  		this.yPosition = this.yPosition + 5;
+  		let newYPosition = this.yPosition + "px";
+  		player.style.top = newYPosition;
+  		console.log(newYPosition);
   	}
   }; 
 
   //setting some global objects and variables
-  let player1 = new Player("player1", 0);
-  let player2 = new Player("player2", 0);
+  let player1 = new Player("player1", 0, 0);
+  let player2 = new Player("player2", 0, 0);
 
   //function that listens for an event of keypress on the document and then decides which player (k/K is player1, s/S is player2)
   document.addEventListener("keypress",keypressListener);
 
   function keypressListener() {
-  	if (event.key == "k" || event.key == "K") {	
+    if (event.key == "k" || event.key == "K") {	
 	  player1.keystrokeMove();
+	  checkForWinner();
 	} else if (event.key == "s" || event.key == "S") {
-		 player2.keystrokeMove();
+	  player2.keystrokeMove();
+	  checkForWinner();
 	} else {
-		console.log("you pressed the wrong key");
-		console.log(event);
-		console.log(event.key);
+	  console.log("you pressed the wrong key");
+	  console.log(event);
+	  console.log(event.key);
 	};
   };
+
+  function checkForWinner() {
+  	console.log("I'm checking for a winnah!");
+  };
+
 });
 
 

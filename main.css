@@ -3,13 +3,16 @@
 -Create HTML and CSS files that create one red square div and one blue, DONE
 	lined up on the left side of the screen
 -Include a media query for a tablet to make your pages responsive 		**NOT YET**
-	(use % instead of px to determine winnah) 							**NOT YET**
+	(use % instead of px to determine winnah) 							DONE
 -Style your landing page and game page with class-based CSS 			**NOT YET**
 -GRADED: Adhere to the Google style guide for writing your CSS  		**NOT YET**
 -GRADED: Comment your code appropriately								**NOT YET**
 
 Bonus:
--Use images to create a background and/or players						
+-Use images to create a wintry background 
+	https://codepen.io/NickyCDK/pen/AIonk - CSS snow animation
+	mountain to ski down			
+-Use images to create snowboarders						
 -Add animations!!!!
 -snowboarding theme
 
@@ -18,19 +21,22 @@ Bonus:
 * {
 	font-size: 50px;
 }
+body {
+	background-image: url("media/mountain.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 div {
 	height: 70px;
 	width: 150px;
 	position: relative;
 	left: 0;
+	top: 0;
 }
 #player1 {
 	background-color: red;
-	top: 50px;
-	/*top: 30%;*/
 }
 #player2 {
 	background-color: blue;
 	color: white;
-	top: 300px;
 }
