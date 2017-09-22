@@ -1,10 +1,10 @@
 /* CSS Requirements
 
--Create HTML and CSS files that create one red square div and one blue, 1/2 way
+-Create HTML and CSS files that create one red square div and one blue, DONE
 	lined up on the left side of the screen
--Style your landing page and game page with class-based CSS 			**NOT YET**
 -Include a media query for a tablet to make your pages responsive 		**NOT YET**
 	(use % instead of px to determine winnah) 							**NOT YET**
+-Style your landing page and game page with class-based CSS 			**NOT YET**
 -GRADED: Adhere to the Google style guide for writing your CSS  		**NOT YET**
 -GRADED: Comment your code appropriately								**NOT YET**
 
@@ -19,13 +19,18 @@ Bonus:
 	font-size: 50px;
 }
 div {
-	height: 15%;
-	width: 15%;
-	/*position: ;*/
+	height: 70px;
+	width: 150px;
+	position: relative;
+	left: 0;
 }
-.player1 {
+#player1 {
 	background-color: red;
+	top: 50px;
+	/*top: 30%;*/
 }
-.player2 {
+#player2 {
 	background-color: blue;
+	color: white;
+	top: 300px;
 }
