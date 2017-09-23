@@ -8,35 +8,73 @@
 -GRADED: Adhere to the Google style guide for writing your CSS  		**NOT YET**
 -GRADED: Comment your code appropriately								**NOT YET**
 
-Bonus:
+STYLING:
+-
 -Use images to create a wintry background 
-	https://codepen.io/NickyCDK/pen/AIonk - CSS snow animation
-	mountain to ski down			
--Use images to create snowboarders						
--Add animations!!!!
--snowboarding theme
+	
+	mountain to ski down												DONE
+-Use images to create snowboarders										DONE		
+-Add animations -- when the boarder wins, it does a flip				??
+-snowboarding theme														DONE
 
 */
 
+/* these style all pages in the website */
 * {
-	font-size: 50px;
+	font-size: 20px;
+	font-family: 'Amatic SC', sans-serif;
+	margin: 0;
 }
-body {
+
+/* these style the headers on the website */
+header {
+	width: 100%;
+	display: inline-block;
+	margin: 10px;
+}
+
+h1 {
+	float: left;
+	margin: 10px;
+}
+
+a {
+	float: right;
+	margin: 5px 15px;
+}
+
+#container {
+	width: 100%;
+	background-color: green;
 	background-image: url("media/mountain.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	height: 100vh;
 }
+
+/*these style the divs and the 2 snowboarder players*/
 div {
-	height: 70px;
-	width: 150px;
+	height: 100px;
+	width: 100px;
 	position: relative;
 	left: 0;
 	top: 0;
 }
+
 #player1 {
-	background-color: red;
+	background-image: url('media/snowboarder1.png');
+	background-size: cover;
 }
+
 #player2 {
-	background-color: blue;
-	color: white;
+	background-image: url('media/snowboarder2.png');
+	background-size: cover;
 }
+
+/*#finish-line {
+	background-color: red;
+	height: 100vh;
+	width: 2px;
+	position: relative;
+	float: right;
+}*/
