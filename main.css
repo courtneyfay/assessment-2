@@ -1,80 +1,125 @@
-/* CSS Requirements
+/* TODO: CSS Requirements
 
--Create HTML and CSS files that create one red square div and one blue, DONE
+-Create HTML and CSS files that create one red square div and one blue, 											DONE
 	lined up on the left side of the screen
--Include a media query for a tablet to make your pages responsive 		**NOT YET**
-	(use % instead of px to determine winnah) 							DONE
--Style your landing page and game page with class-based CSS 			**NOT YET**
--GRADED: Adhere to the Google style guide for writing your CSS  		**NOT YET**
--GRADED: Comment your code appropriately								**NOT YET**
+-Include a media query for a tablet to make your pages responsive 														**NOT YET**
+	-use % instead of px to determine winnah																										**NOT YET** 
+	-add buttons that the user can press to move the players when the screen is phone sized			**NOT YET** 
+-Style your landing page with class-based CSS 																								**NOT YET**
+-Style your game page with class-based CSS																										**NOT YET** 
+-GRADED: Adhere to the Google style guide for writing your CSS  															**NOT YET**
+-GRADED: Comment your code appropriately																											**NOT YET**
+	Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
 
 STYLING:
--
--Use images to create a wintry background 
-	
-	mountain to ski down												DONE
--Use images to create snowboarders										DONE		
--Add animations -- when the boarder wins, it does a flip				??
--snowboarding theme														DONE
-
+-add snow animation wooshing up around the board while they ride 	**NOT YET**
+-mountain to ski down																							DONE
+-Use images to create snowboarders																DONE		
+-Add animations -- when the boarder wins, it does a flip					DONE
+-snowboarding theme																								DONE
 */
 
-/* these style all pages in the website */
+/* Mobile */
+
 * {
-	font-size: 20px;
-	font-family: 'Amatic SC', sans-serif;
-	margin: 0;
+	font-size: 100px;
 }
 
-/* these style the headers on the website */
-header {
-	width: 100%;
-	display: inline-block;
-	margin: 10px;
-}
+/* Desktop */
 
-h1 {
-	float: left;
-	margin: 10px;
-}
+@media (min-width: 500px) {
 
-a {
-	float: right;
-	margin: 5px 15px;
-}
+	/* All */
 
-#container {
-	width: 100%;
-	background-color: green;
-	background-image: url("media/mountain.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100vh;
-}
+	* {
+		font-family: 'Amatic SC', sans-serif;
+		font-size: 30px;
+		margin: 0;
+	}
 
-/*these style the divs and the 2 snowboarder players*/
-div {
-	height: 100px;
-	width: 100px;
-	position: relative;
-	left: 0;
-	top: 0;
-}
+	/* Headers */
 
-#player1 {
-	background-image: url('media/snowboarder1.png');
-	background-size: cover;
-}
+	header {
+		display: inline-block;
+		margin: 10px;
+		width: 100%;
+	}
 
-#player2 {
-	background-image: url('media/snowboarder2.png');
-	background-size: cover;
-}
+	h1 {
+		float: left;
+		margin: 10px;
+	}
 
-/*#finish-line {
-	background-color: red;
-	height: 100vh;
-	width: 2px;
-	position: relative;
-	float: right;
-}*/
+	a {
+		float: right;
+		margin: 5px 15px;
+	}
+
+	/* Mountain racetrack */
+	
+	#container {
+		background-image: url(media/mountain.jpg);
+		background-size: cover;
+		height: 100vh;
+		width: 100%;
+	}
+
+	/* Snowboarders */
+
+	.snowboarder {
+		background-size: cover;
+		height: 100px;
+		left: 0;
+		position: relative;
+		top: 0;
+		width: 100px;
+	}
+
+	#player-1 {
+		background-image: url(media/snowboarder1.png);
+	}
+
+	#player-2 {
+		background-image: url(media/snowboarder2.png);
+	}
+
+	/* Snowboarder animations */
+
+	.animated {
+		animation-name: flip;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-timing-function: ease-out;
+		animation-fill-mode: forwards;
+		animation-delay: 0;
+	}
+
+	@keyframes flip {
+		0% {
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+		25% {
+			-webkit-transform: rotate(270deg);
+			-moz-transform: rotate(270deg);
+			transform: rotate(270deg);
+		}
+		50% {
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+		75% {
+			-webkit-transform: rotate(90deg);
+			-moz-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+		100% {
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+	}
+}
