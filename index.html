@@ -1,13 +1,12 @@
 <!-- TODO: HTML Requirements
 
--Git commits, ~10 commits over 3 days: 3 commits Thurs, 3 commits Fri												**NOT YET**
+-Git commits, ~10 commits over 3 days: 3 commits Thurs, 3 commits Fri, 1 commit Sat					**NOT YET**
 -Your game should have two pages: a landing page and a game page														DONE
 -Include separate HTML, CSS, JavaScript files																								DONE
 -Choose an existing landing page on the web; screen shot the landing page, 									**NOT YET** 
 	and replicate its design to create a separate game landing page that links to your game
 	(no copy paste)
-	-https://codepen.io/NickyCDK/pen/AIonk - CSS snow animation																**NOT YET**
-	-tutorial that shows users how to play the game																						**NOT YET**
+-Ask about moving JS to a separate page for index?																					**NOT YET**
 -GRADED: Comment your code appropriately																										**NOT YET**
 	-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
 -GRADED: Adhere to the Google style guide for writing your HTML 														CHECK AGAIN
@@ -15,20 +14,26 @@
 
 -->
 
-<!-- this page is for the landing page -->
+<!-- this is the landing page -->
 
 <!DOCTYPE html>
 <html>
 <title>Snowboard Racer</title>
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 <link rel="stylesheet" href="main.css">
-<body>
-	<header>
+<body id="landing-page">
 		
-		<h1>Welcome to my sweet snowboarding game</h1>
-		
-		<a href="race.html">Play!</a>
-	</header>
-	<script src="app.js"></script>
+		<div id="game-screen">
+
+			<h1 id="game-title">Snowboard Racer</h1>
+			
+			<div id="snowboard-button">
+				
+				<a id="game-button" href="race.html">Play!</a>
+
+			</div>
+			
+		</div>
+	<script src="app.js"></script> 
 	</body>
 </html>
