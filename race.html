@@ -1,9 +1,8 @@
 <!-- TODO: Race Requirements
 -Create HTML and CSS files that create one red square div and one blue, 						DONE
 	lined up on the left side of the screen
--Adheres to Google HTML style guide																									CHECK AGAIN
--Comment the code 																																	**NOT YET**
-	-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?	
+-Adheres to Google HTML style guide																									DONE
+-Comment the code 																																	DONE
  -->
 
 <!-- this is the actual racing game -->
@@ -14,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 <link rel="stylesheet" href="main.css">
 <body id="container">
+
+	<!-- header contains instructions on how to move the snowboarders -->
 	<header>
 
 		<h1 id="instructions-player-1">Player 1 press "S" key to ride.</h1>
@@ -22,10 +23,14 @@
 
 	</header>
 
+		<!-- this div is invisible until a snowboarder wins -->
+		<div id="player-who-won"></div>
+
+		<!-- these divs are the 2 snowboarders -->
 		<div class="snowboarder" id="player-1"></div>
 
 		<div class="snowboarder" id="player-2"></div>
 
-<script src="race.js"></script>
+<script src="js/race.js"></script>
 </body>	
 </html>

@@ -5,19 +5,22 @@
 -Include a media query for a tablet to make your pages responsive 														DONE
 	-use % instead of px to determine winnah																										DONE 
 	-add buttons that the user can press to move the players when the screen is phone sized			DONE
--Style your landing page with class-based CSS 																								**NOT YET**
--Style your game page with class-based CSS																										DONE
--GRADED: Adhere to the Google style guide for writing your CSS  															CHECK AGAIN
--GRADED: Comment your code appropriately																											**NOT YET**
-	Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
+-Style your landing page with class-based CSS 																								~~CHECK WITH STEFAN~~
+-Style your game page with class-based CSS																										~~CHECK WITH STEFAN~~
+-GRADED: Adhere to the Google style guide for writing your CSS  															DONE
+-GRADED: Comment your code appropriately																											DONE
 
 STYLING:
--add snow animation wooshing up around the board while they ride 	**NOT YET**
--mountain to ski down																							DONE
--Use images to create snowboarders																DONE		
--Add animations -- when the boarder wins, it does a flip					DONE
--snowboarding theme																								DONE
+-add snow animation whooshing up around the board while they ride 	**IF THERE'S TIME**
+-mountain to ski down																								DONE
+-Use images to create snowboarders																	DONE		
+-Add animations -- when the boarder wins, it does a flip						DONE
+-snowboarding theme																									DONE
 */
+
+
+/* CSS styles both the landing page and the race page */
+
 
 /* Mobile and iPad screens */
 
@@ -27,7 +30,7 @@ STYLING:
 	margin: 0;
 }
 
-/* Headers */
+/* Race instructions */
 
 header {
 	display: inline-block;
@@ -36,12 +39,12 @@ header {
 }
 
 #instructions-player-1 {
-		float: left;
-	}
+	float: left;
+}
 
 #instructions-player-2 {
-		float: right;
-	}
+	float: right;
+}
 
 /* Mountain racetrack */
 	
@@ -71,7 +74,14 @@ header {
 	background-image: url(media/snowboarder2.png);
 }
 
-/* Snowboarder animations */
+/* Snowboarder winning and animations */
+
+#player-who-won {
+	background-color: white;
+	font-size: 150px;
+	margin: 0 auto;
+	text-align: center;
+}
 
 .flip {
 	animation-name: flip;
@@ -111,7 +121,7 @@ header {
 	}
 }
 
-/* Landing Page designs */
+/* Landing Page title */
 
 #landing-page {
 	background-image: url(media/bluebird.jpg);
@@ -206,7 +216,7 @@ a:active {
 		font-size: 30px;
 	}
 
-	/* Headers */
+	/* Race instructions */
 
 	header {
 		margin: 10px;
@@ -221,7 +231,7 @@ a:active {
 		margin: 5px 15px;
 	}
 
-	/* Landing Page designs */
+	/* Landing Page title */
 
 	#game-screen {
 		top: 0;

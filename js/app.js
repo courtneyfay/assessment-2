@@ -1,3 +1,5 @@
+// Toggles the classes to create animations on the landing page
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log("js is loaded!");
 
@@ -8,5 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   setInterval(hoverText, 1000);
-  
+
 });

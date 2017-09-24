@@ -3,10 +3,9 @@
 -Your game page must have at least two player objects																						DONE
 -Add a keydown event listener that console logs "blue move" or "red move"												DONE
 -Replace that console log with JavaScript that moves the red or blue div a little to the right 	DONE 
--Your game must have a clear win condition																											1/2 way
+-Your game must have a clear win condition																											DONE
 -GRADED: Adhere to the AirBnB style guide for writing your JavaScript														**NOT YET**
--GRADED: Comment your code appropriately																												**NOT YET**
-	-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
+-GRADED: Comment your code appropriately																												DONE
 
 Bonus:
 -Score each game based on the time it took to complete and by how much time 
@@ -21,7 +20,7 @@ Bonus:
 document.addEventListener('DOMContentLoaded', function() {
   console.log("js is loaded!");
 
-  // Constructor function that creates 2 new player objects
+  // Constructor function creates 2 new player objects
   function Player(name="player-1", xPosition=0, yPosition=0, width=100) {
   		this.name = name;
   		this.xPosition = xPosition;
@@ -30,8 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
   		this.element = document.getElementById(name);
   }
 
-  // function that makes the player ride when the appropriate key is struck 
+  // prototype methods for the Player object: rideDown(), checkForWinner(), winAnimation()
   Player.prototype = {
+
+    // makes a player "ride" right and down the mountain, then checks for a winner
   	rideDown: function() {
 
   		//move the player to the right
@@ -39,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
   		this.element.style.left = (this.xPosition + "px");
 
   		//moves the player down the mountain
-  		this.yPosition = this.yPosition + 4;
+  		this.yPosition = this.yPosition + 3;
   		this.element.style.top = (this.yPosition + "px");
 
   		this.checkForWinner(); 
   	}, 
   	
-  	//after every key press, check for a winner
+  	// checks to see if a snowboarder touched the right edge of the viewing screen
   	checkForWinner: function() {
   		let snowboarderPosition = this.xPosition + this.width;	
 
@@ -54,10 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
   		} 
   	}, 
 
-  	// when a player wins, they do a flip
+  	// when a snowboarder wins, they do a flip and there is a notification at the top letting everyone know who won. event listeners are turned off
   	winAnimation: function() {
   		this.element.classList.add("flip");
-  		//how to let end users know who won WITHOUT using an alert?
+      let winnerAlert = document.getElementById("player-who-won"); 
+      winnerAlert.innerHTML = this.name + " won!";
 
   		//turn off all the event listeners
   		document.removeEventListener("keypress",keypressListener);
@@ -66,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
   	}
   }; 
 
+  // turns on event listeners for the "s/S" key (player1) and the "k/K" key (player2)
   function keypressListener() {
     if (event.key == "s" || event.key == "S") {	
 	  	player1.rideDown();
@@ -78,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
   };
 
+  // turns on event listeners if a user clicks on the instructions on the left (player1) or the instructions on the right (player2)
   function touchstartListener() {
 
   		if (this.id === "instructions-player-1") {
@@ -87,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
   		}; 
   };
 
-  //function that adjusts the elements on the screen to make them more mobile-friendly
+  // adjusts the elements on the screen to make them more mobile-friendly
   function checkScreenSize() {
   	if (screen.width < 1025) {
   		player1Button.innerHTML = "Player 1: <br /> Press Here";
@@ -100,22 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
   	}
   };
 
-  /*let snowboarders = [];
-
- 	for (let i =0; i < 3; i++) {
- 		snowboarders.push(new Player(("player-" + i), 0, 0, 100));
- 	}*/
-
-  //setting some global objects and variables
+  // creates new objects and sets global variables
   let player1 = new Player("player-1", 0, 0, 100);
   let player2 = new Player("player-2", 0, 0, 100);
   let player1Button = document.getElementById("instructions-player-1");
   let player2Button = document.getElementById("instructions-player-2");
   let racetrack = document.getElementById('container');
 
-  //function that listens for an event of keypress on the document and then decides which player to move (s/S is player1, k/K is player2)
-  
+  // calls the function that checks on user screen size
   checkScreenSize();
+
+  /*let snowboarders = [];
+
+  for (let i =0; i < 3; i++) {
+    snowboarders.push(new Player(("player-" + i), 0, 0, 100));
+  }*/
 
 });
 

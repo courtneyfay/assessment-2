@@ -1,16 +1,14 @@
 <!-- TODO: HTML Requirements
 
--Git commits, ~10 commits over 3 days: 3 commits Thurs, 3 commits Fri, 2 commits Sat				**NOT YET**
+-Git commits, ~10 commits over 3 days: 3 commits Thurs, 3 commits Fri, 3 commits Sat				**NOT YET**
 -Your game should have two pages: a landing page and a game page														DONE
 -Include separate HTML, CSS, JavaScript files																								DONE
--Choose an existing landing page on the web; screen shot the landing page, 									**NOT YET** 
+-Choose an existing landing page on the web; screen shot the landing page, 									DONE
 	and replicate its design to create a separate game landing page that links to your game
 	(no copy paste)
--Ask about moving JS to a separate page for index?																					**NOT YET**
--GRADED: Comment your code appropriately																										**NOT YET**
-	-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
--GRADED: Adhere to the Google style guide for writing your HTML 														CHECK AGAIN
--All requirements were met with at least one bonus requirement															**NOT YET**
+-GRADED: Comment your code appropriately																										DONE
+-GRADED: Adhere to the Google style guide for writing your HTML 														DONE
+-All requirements were met with at least one bonus requirement															DONE
 
 -->
 
@@ -23,17 +21,18 @@
 <link rel="stylesheet" href="main.css">
 <body id="landing-page">
 		
-		<div id="game-screen">
+	<!-- DIV contains title and play button for game -->
+	<div id="game-screen">
 
-			<h1 id="game-title">Snowboard Racer</h1>
+		<h1 id="game-title">Snowboard Racer</h1>
+		
+		<div id="snowboard-button">
 			
-			<div id="snowboard-button">
-				
-				<a id="game-button" href="race.html">Play!</a>
+			<a id="game-button" href="race.html">Play!</a>
 
-			</div>
-			
 		</div>
-	<script src="app.js"></script> 
-	</body>
+		
+	</div>
+<script src="js/app.js"></script> 
+</body>
 </html>
