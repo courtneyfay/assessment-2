@@ -167,15 +167,18 @@ header {
 
 #snowboard-button {
 	background-image: url(media/snowboard.png);
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	/*height: 200px;*/
+	height: 175px;
+	position: relative;
+	top: 100px;
 }
 
 a:link {
 	color: #DAE800; /* snazzy yellow */
 	display: block;
-	font-size: 100px;
+	font-size: 125px;
 	text-align: center;
 	text-decoration: none;
 }
@@ -191,8 +194,6 @@ a:hover {
 a:active {
 	color: #00CA00; /* funky green */
 }
-
-
 
 
 /* Desktop and larger screens */
@@ -218,6 +219,30 @@ a:active {
 
 	#instructions-player-2 {
 		margin: 5px 15px;
+	}
+
+	/* Landing Page designs */
+
+	#game-screen {
+		top: 0;
+	}
+
+	#game-title {
+		font-size: 308px;
+		line-height: .9;
+	}
+
+	/* Play! link styling */
+
+	#game-button {
+		font-size: 200px;
+		margin: 0 auto;
+		width: 50%;
+	}
+
+	#snowboard-button {
+		height: 250px;
+		top: 0;
 	}
 
 }
