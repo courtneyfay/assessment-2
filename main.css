@@ -5,8 +5,8 @@
 -Include a media query for a tablet to make your pages responsive 														DONE
 	-use % instead of px to determine winnah																										DONE 
 	-add buttons that the user can press to move the players when the screen is phone sized			DONE
--Style your landing page with class-based CSS 																								~~CHECK WITH STEFAN~~
--Style your game page with class-based CSS																										~~CHECK WITH STEFAN~~
+-Style your landing page with class-based CSS 																								DONE
+-Style your game page with class-based CSS																										DONE
 -GRADED: Adhere to the Google style guide for writing your CSS  															DONE
 -GRADED: Comment your code appropriately																											DONE
 
@@ -79,7 +79,9 @@ header {
 #player-who-won {
 	background-color: white;
 	font-size: 150px;
+	left: 25%;
 	margin: 0 auto;
+	position: absolute;
 	text-align: center;
 }
 
