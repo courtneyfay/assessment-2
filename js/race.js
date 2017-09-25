@@ -5,7 +5,7 @@
 -Replace that console log with JavaScript that moves the red or blue div a little to the right 	DONE 
 -Your game must have a clear win condition																											DONE
 -DRY out the code                                                                               DONE
--GRADED: Adhere to the AirBnB style guide for writing your JavaScript														**NOT YET**
+-GRADED: Adhere to the AirBnB style guide for writing your JavaScript														DONE
 -GRADED: Comment your code appropriately																												DONE
 
 Bonus:
@@ -19,7 +19,7 @@ Bonus:
 */
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("js is loaded!");
+  console.log('js is loaded!');
 
   // global array of all the player objects
   let players = [];
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // creates 2 new player objects and loads them into an array of all the players
     for (let i = 0; i < 2; i++) {
-      let playerName = "player-" + (Number([i]) + 1);
-      let instructionName = "instructions-player-" + (Number([i]) + 1);
+      let playerName = 'player-' + (i + 1);
+      let instructionName = 'instructions-player-' + (i + 1);
       players.push(new Player(playerName, 0, 0, 100, instructionName));
     }
 
@@ -38,28 +38,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }; 
 
   // Constructor function creates 2 new player objects
-  function Player(name="player-1", xPosition=0, yPosition=0, width=100, element="<div class='snowboarder' id='player-1'></div>", instructionName="instructions-player-1") {
-  		this.name = name;
-  		this.xPosition = xPosition;
-  		this.yPosition = yPosition;
-  		this.width = width;
-  		this.element = document.getElementById(name);
-      this.instructions = document.getElementById(instructionName);
+  function Player(name='player-1', xPosition=0, yPosition=0, width=100, element="<div class='snowboarder' id='player-1'></div>", instructionName='instructions-player-1') {
+		this.name = name;
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		this.width = width;
+		this.element = document.getElementById(name);
+    this.instructions = document.getElementById(instructionName);
   }
 
   // prototype method for the Player object: rideDown()
   Player.prototype = {
 
-    // makes a player "ride" right and down the mountain, then checks for a winner
+    // makes a player ride right and down the mountain, then checks for a winner
   	rideDown: function() {
-  		//move the player to the right
-  		this.xPosition = this.xPosition + 18;
-  		this.element.style.left = (this.xPosition + "px");
-
-  		//moves the player down the mountain
-  		this.yPosition = this.yPosition + 6;
-  		this.element.style.top = (this.yPosition + "px");
-
+      this.xPosition = this.xPosition + 18;
+      this.element.style.left = (this.xPosition + "px");
+      this.yPosition = this.yPosition + 6;
+      this.element.style.top = (this.yPosition + "px");
   		checkForWinner(this); 
   	}
   }; 
@@ -67,30 +63,34 @@ document.addEventListener('DOMContentLoaded', function() {
   // adjusts the elements on the screen to make them more mobile-friendly
   function checkScreenSize(array) {
     if (screen.width < 1025) {
+
+      /* updates instruction text to let users know they should press on instruction boxes to move the players when on a cell phone,
+      and sets event listeners on the instruction divs*/
+      // FIXME: clean up instruction div array code (repeat of winAnimation)
       for (let i = 0; i < array.length; i++) {
-        // updates the text to let users know they should press on instruction boxes to move the players when on a cell phone
-        // sets event listeners on the instruction divs
-        let idName = "instructions-" + array[i].name;
+        let idName = 'instructions-' + array[i].name;
         let playerButton = document.getElementById(idName); //array[i].instructions; //
-        let instructionText = "Player " + (i+1) + ": <br /> Press Here";
+        let instructionText = 'Player ' + (i + 1) + ': <br /> Press Here';
         playerButton.innerHTML = instructionText;
-        playerButton.addEventListener("touchstart", touchstartListener); 
+        playerButton.addEventListener('touchstart', touchstartListener); 
       }
     } else {
+
       // sets an event listener on the document
-      document.addEventListener("keypress",keypressListener);
+      document.addEventListener('keypress',keypressListener);
     } 
   };
 
   // turns on event listeners for the "s/S" key (player1) and for the "k/K" key (player2)
-  // TODO: https://stackoverflow.com/questions/5203407/javascript-multiple-keys-pressed-at-once
+  // FIXME: currently DOM is only listening for one keypress at a time
   function keypressListener() {
-    if (event.key == "s" || event.key == "S") { 
+    if (event.key === 's' || event.key === 'S') { 
       players[0].rideDown();
-    } else if (event.key == "k" || event.key == "K") {
+
+    } else if (event.key === 'k' || event.key === 'K') {
       players[1].rideDown();
     } else {
-      console.log("you pressed the wrong key");
+      console.log('you pressed the wrong key');
       console.log(event);
       console.log(event.key);
     }
@@ -98,17 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // turns on event listeners if a user clicks on the instructions on the left (player1) or the instructions on the right (player2)
   function touchstartListener() {
-  		if (this.id === "instructions-player-1") {
-        players[0].rideDown();
-  		} else if (this.id === "instructions-player-2") {
-  			players[1].rideDown();
-  		}
+		if (this.id === 'instructions-player-1') {
+      players[0].rideDown();
+		} else if (this.id === 'instructions-player-2') {
+			players[1].rideDown();
+		}
   };
 
   // checks to see if a snowboarder touched the right edge of the viewing screen
   function checkForWinner(player) {
     let racetrack = document.getElementById('container');
- 
     if ((player.xPosition + player.width) >= racetrack.offsetWidth) {
       winAnimation(player, players);
     } 
@@ -116,22 +115,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // when a snowboarder wins, they do a flip and there is a notification at the top letting everyone know who won. event listeners are turned off
   function winAnimation(player, array) {
-    console.log("I'm trying to flip");
-    player.element.classList.add("flip");
-    let winnerAlert = document.getElementById("player-who-won"); 
-    winnerAlert.innerHTML = player.name + " won!";
+    player.element.classList.add('flip');
+    let winnerAlert = document.getElementById('player-who-won'); 
+    winnerAlert.innerHTML = player.name + ' won!';
 
-    //turn off all the event listeners
-    document.removeEventListener("keypress",keypressListener);
+    // turn off all the event listeners
+    // FIXME: clean up instruction div array code (repeat of checkScreenSize())
+    document.removeEventListener('keypress',keypressListener);
     for (let i = 0; i < array.length; i++) {
-      let idName = "instructions-" + array[i].name;
+      let idName = 'instructions-' + array[i].name;
       let playerButton = document.getElementById(idName); 
-      playerButton.removeEventListener("touchstart", touchstartListener); 
+      playerButton.removeEventListener('touchstart', touchstartListener); 
     }
   };
 
   startGame();
-
 });
-
-
